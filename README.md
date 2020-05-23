@@ -1,8 +1,9 @@
 # CS61b
 CS61b Data Structures, Spring 2019 UC Berkeley 
 
-## From IntList to SLList
-Rewrite IntList to SLList
+# Lecture 4. SSLists, Nested classes, Sentinel Nodes. 
+### From IntList to SLList
+Compare IntList & SLList
 ```
 public class SLList {
 	public IntNode first;
