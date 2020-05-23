@@ -49,16 +49,17 @@ Problems: Users of our class might be tempted to try to manipulate secret IntNod
 
 Solution: <br/>
 a) Use the ```Private``` keyword to prevent code in other classes from using members of a class. <br/>
-	Why Restrict Access?<br/>
-	* Less for user of class to understand
-	* Safe for you to change private methods. <br/>
+Why Restrict Access?<br/>
+* Less for user of class to understand
+* Safe for you to change private methods. <br/>
+
 b) Use Nested class <br/>
-	Why Nested Class?<br/>
-	* when a class doesn't stand on its own and is above subordinate to another class.
+Why Nested Class?<br/>
+* when a class doesn't stand on its own and is above subordinate to another class.
 	
-   Statis Nested Classes: If the nested class never uses any instance variables or methods of the outer class, declare is static.
-   * Static classes can't access outer class's instance variables or methods.
-   * Results in a minor savings of memory.
+Statis Nested Classes: If the nested class never uses any instance variables or methods of the outer class, declare is static.
+* Static classes can't access outer class's instance variables or methods.
+* Results in a minor savings of memory.
    
-   ![](Images/nested_class.PNG)
+![](Images/nested_class.PNG)
 	
