@@ -46,13 +46,14 @@ Problems: Users of our class might be tempted to try to manipulate secret IntNod
 
 
 ![](Images/private.PNG) 
-Solution: 
+
+Solution: <br/>
 a) Use the ```Private``` keyword to prevent code in other classes from using members of a class. <br/>
-	Why Restrict Access?
+	Why Restrict Access?<br/>
 	* Less for user of class to understand
-	* Safe for you to change private methods. 
+	* Safe for you to change private methods. <br/>
 b) Use Nested class <br/>
-	Why Nested Class?
+	Why Nested Class?<br/>
 	* when a class doesn't stand on its own and is above subordinate to another class.
 	
    Statis Nested Classes: If the nested class never uses any instance variables or methods of the outer class, declare is static.
