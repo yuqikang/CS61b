@@ -3,13 +3,13 @@ CS61b Data Structures, Spring 2019 UC Berkeley
 
 # Lecture 4. SSLists, Nested classes, Sentinel Nodes. 
 ### From IntList to SLList
-Compare IntList & SLList
+Rewrite IntList to SLList
 ```
 public class SLList {
 	public IntNode first;
 
 	public SLList(int x){
-			first = new IntNode(x, null);
+		first = new IntNode(x, null);
 	}
 
 	/* Adds x to the front of the list */
@@ -31,3 +31,6 @@ public class SLList {
 	}
 }
 ```
+IntList vs. SLList
+* SLList is easier to instantiate (no need to specify null)
+* Simpler to use. Simply use the provided methods. 
