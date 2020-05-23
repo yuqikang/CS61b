@@ -2,7 +2,7 @@
 CS61b Data Structures, Spring 2019 UC Berkeley 
 
 # Lecture 4. SSLists, Nested classes, Sentinel Nodes. 
-### From IntList to SLList
+## From IntList to SLList
 Rewrite IntList to SLList
 ```
 public class SLList {
@@ -37,4 +37,27 @@ IntList vs. SLList
 ![](Int_vs_SL.PNG)
 * SLList is easier to instantiate (no need to specify null)
 * Simpler to use. Simply use the provided methods. 
-* ![](vs2.PNG)
+* SLList creates a middle between user and data structure. 
+![](vs2.PNG)
+
+
+## Public vs. Private Nested Classes
+Problems: Users of our class might be tempted to try to manipulate secret IntNode directly 
+
+
+![](private.PNG)
+Solution: 
+a) Use the ```Private``` keyword to prevent code in other classes from using members of a class. 
+	Why Restrict Access?
+	* Less for user of class to understand
+	* Safe for you to change private methods. 
+b) Use Nested class
+	Why Nested Class?
+	* when a class doesn't stand on its own and is above subordinate to another class.
+	
+   Statis Nested Classes: If the nested class never uses any instance variables or methods of the outer class, declare it 	    static.
+   * Static classes can't access outer class's instance variables or methods.
+   * Results in a minor savings of memory.
+   
+   ![](nested_class.PNG)
+	
