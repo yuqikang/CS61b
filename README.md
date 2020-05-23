@@ -48,12 +48,12 @@ Problems: Users of our class might be tempted to try to manipulate secret IntNod
 ![](Images/private.PNG) 
 
 Solution: <br/>
-a) Use the ```Private``` keyword to prevent code in other classes from using members of a class. <br/>
+***a) Use the ```Private``` keyword to prevent code in other classes from using members of a class. <br/>***
 Why Restrict Access?<br/>
 * Less for user of class to understand
 * Safe for you to change private methods. <br/>
 
-b) Use Nested class <br/>
+***b) Use Nested class <br/>***
 Why Nested Class?<br/>
 * when a class doesn't stand on its own and is above subordinate to another class.
 	
@@ -63,3 +63,28 @@ Statis Nested Classes: If the nested class never uses any instance variables or 
    
 ![](Images/nested_class.PNG)
 	
+## Adding More SSList Functionality
+***.addLast(int x)***
+```public void addLast(int x):
+	IntNode p = first;
+	
+	/* Move p until it reaches the end of the list */
+	while (p.next != null) {
+	     p = p.next
+        }
+	p.next = new IntNode(x, null);
+```
+
+***.Size()***
+```
+/** Returns the size of the list that starts at IntNode P. **/
+private statis nt size(IntNode p){
+    if (p.next == null){
+    	return 1;
+    }
+    return 1 + size(p.next)
+}
+public int size(){
+     return size(first);
+}
+```
