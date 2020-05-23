@@ -32,5 +32,6 @@ public class SLList {
 }
 ```
 IntList vs. SLList
+![](Int_vs_SL.png)
 * SLList is easier to instantiate (no need to specify null)
 * Simpler to use. Simply use the provided methods. 
