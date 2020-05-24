@@ -136,4 +136,6 @@ private int size(){
 	return size;
 }
 ```
+Middle man in SSList can store information about entire list. Object oriented approach means that we let the object control everthing. <br/>
+Naked Linked Lists has to update a bunch of size variables when changes something in the list. Finaly will end up multiple variables that have to keep straight. 
 ![](Images/caching.PNG)
