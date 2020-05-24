@@ -1,8 +1,8 @@
 # CS61b
 CS61b Data Structures, Spring 2019 UC Berkeley 
 
-# Lecture 4. SSLists, Nested classes, Sentinel Nodes. 
-## From IntList to SLList
+## Lecture 4. SSLists, Nested classes, Sentinel Nodes. 
+### From IntList to SLList
 Rewrite IntList to SLList
 ```
 public class SLList {
@@ -41,7 +41,7 @@ IntList vs. SLList
 ![](Images/vs2.PNG)
 
 
-## Public vs. Private Nested Classes
+### Public vs. Private Nested Classes
 Problems: Users of our class might be tempted to try to manipulate secret IntNode directly 
 
 
@@ -63,7 +63,7 @@ Statis Nested Classes: If the nested class never uses any instance variables or 
    
 ![](Images/nested_class.PNG)
 	
-## Adding More SSList Functionality
+### Adding More SSList Functionality
 ***.addLast(int x)***
 ```public void addLast(int x):
 	IntNode p = first;
@@ -88,3 +88,52 @@ public int size(){
      return size(first);
 }
 ```
+### Caching 
+Goal: Modify SLList so that the execution time of size() is always fast(i.e. independent of the size of the list). <br/>
+Solution: Maintain in a special size variable that caches the size of the lists.
+* Caching: putting aside data to speed up retreval. 
+```
+private static class IntNode {
+    public int item;
+    public IntNode next;
+    
+    public IntNode(int i, IntNode n){
+        item = i;
+	next = n;
+    }
+ }
+ 
+ private IntNode first;
+ private int size;
+ 
+ public SLList(int x){
+     first = new IntNode(x, null);
+     size = 1;
+ }
+ 
+ public void addFirst(int x){
+     first = new IntNode(x, first);
+     size += 1;
+}
+
+public int getFirst(){
+    return first.item;
+}
+
+public void addLast(int x){
+	size += 1;
+	
+	IntNode p = first;
+	
+	/* Move p until it reaches the end of the list */
+	while (p.next != null) {
+	     p = p.next
+        }
+	p.next = new IntNode(x, null);
+}
+
+private int size(){
+	return size;
+}
+```
+![](Images/caching.PNG)
