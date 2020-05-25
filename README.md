@@ -136,6 +136,115 @@ private int size(){
 	return size;
 }
 ```
-Middle man in SSList can store information about entire list. Object oriented approach means that we let the object control everthing. <br/>
-Naked Linked Lists has to update a bunch of size variables when changes something in the list. Finaly will end up multiple variables that have to keep straight. 
+* Middle man in SSList can store information about entire list. Object oriented approach means that we let the object control everthing. <br/>
+* Naked Linked Lists has to update a bunch of size variables when changes something in the list. Finaly will end up multiple variables that have to keep straight. 
 ![](Images/caching.PNG)
+
+### Sentinel Node
+Create a special node that is always there - Sentinel node.
+![](Images/Sentinel_node.PNG)
+
+Notes: <br/>
+* First is renamed to be sentinel.
+* Sentinel is never null, always points to sentinel node. 
+* Sentinel node's item needs to be integer, but doesn't matter what value we pick. 
+* How to fix constructors and methods to be compatible with sentinel node. 
+
+
+### Invariants
+An invariants is a condition that is guaranteed to be true during code execution. <br/>
+
+An SLList with a sentinel node has at least the following invariants:
+* The sentinel reference always points to a sentinel node. 
+* The first node, if always at sentinel.next.
+* The size variable is always the total number of items that have benn added. 
+
+```public class SLList {	
+	private static class IntNode {
+		public int item;
+		public IntNode next;
+
+		public IntNode(int i, IntNode n) {
+			item = i;
+			next = n;
+			System.out.println(size);
+		}
+	} 
+
+	/* The first item (if it exists) is at sentinel.next. */
+	private IntNode sentinel;
+	private int size;
+
+	private static void lectureQuestion() {
+		SLList L = new SLList();
+		IntNode n = IntNode(5, null);
+	}
+
+	/** Creates an empty SLList. */
+	public SLList() {
+		sentinel = new IntNode(63, null);
+		size = 0;
+	}
+
+	public SLList(int x) {
+		sentinel = new IntNode(63, null);
+		sentinel.next = new IntNode(x, null);
+		size = 1;
+	}
+
+ 	/** Adds x to the front of the list. */
+ 	public void addFirst(int x) {
+ 		sentinel.next = new IntNode(x, sentinel.next);
+ 		size = size + 1;
+ 	}
+
+ 	/** Returns the first item in the list. */
+ 	public int getFirst() {
+ 		return sentinel.next.item;
+ 	}
+
+ 	/** Adds x to the end of the list. */
+ 	public void addLast(int x) {
+ 		size = size + 1; 		
+
+ 		IntNode p = sentinel;
+
+ 		/* Advance p to the end of the list. */
+ 		while (p.next != null) {
+ 			p = p.next;
+ 		}
+
+ 		p.next = new IntNode(x, null);
+ 	}
+ 	
+ 	/** Returns the size of the list. */
+ 	public int size() {
+ 		return size;
+ 	}
+
+	public static void main(String[] args) {
+ 		/* Creates a list of one integer, namely 10 */
+ 		SLList L = new SLList();
+ 		L.addLast(20);
+ 		System.out.println(L.size());
+ 	}
+}
+```
+
+## 5. DLLists, Arrays
+*** Naive***
+Problem: last pointer sometimes points at the sentinel, and sometimes points at a 'real' node. When code, have to check and see if it's actually the sentinel. So hard to code up. 
+![](Images/naive.PNG)
+
+***Double Sentinel***
+Have two sentinels. 
+![](Images/double_sentinel.PNG)
+
+***Circular Sentinel***
+Even better topology (IMO): Have one sentinel that is both the front and the back. 
+![](Images/circular.PNG)
+
+### Generic Lists
+A method can used in different data types. 
+Java allows us to defer type select until declaration, 
+![](Images/generic.PNG)
