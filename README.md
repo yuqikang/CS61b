@@ -231,16 +231,16 @@ An SLList with a sentinel node has at least the following invariants:
 }
 ```
 
-## 5. DLLists, Arrays
-*** Naive***
+## Lesson 5. DLLists, Arrays
+*** Naive*** <br/>
 Problem: last pointer sometimes points at the sentinel, and sometimes points at a 'real' node. When code, have to check and see if it's actually the sentinel. So hard to code up. 
 ![](Images/naive.PNG)
 
-***Double Sentinel***
+***Double Sentinel*** <br/>
 Have two sentinels. 
 ![](Images/double_sentinel.PNG)
 
-***Circular Sentinel***
+***Circular Sentinel***<br/>
 Even better topology (IMO): Have one sentinel that is both the front and the back. 
 ![](Images/circular.PNG)
 
@@ -248,3 +248,58 @@ Even better topology (IMO): Have one sentinel that is both the front and the bac
 A method can used in different data types. 
 Java allows us to defer type select until declaration, 
 ![](Images/generic.PNG)
+
+### Array
+***Get Memory Boxes***<br/>
+To story information, we need memory boxes, which we can get in Java by declaring variables or instantiating objects. Examples: <br/>
+* int x <- a memory box of 32 bits that store int.
+* Walrus w1 <- a memory box of 64 bits that store Walrus reference.
+* Walrus w2 = new Walrus(30, 5.6) <- a memory box of 64 bits that store Walrus reference and also gives 96 bits for storing the int size               (32 bits) and double tuskSize(64 bits) for Walrus.<br/>
+
+Array are a special kind of object which consists of a numbered sequence of memory boxes.
+* To get ith item of array: A[i].
+* Unlike class instance which have have named memory boxes. a class is a named set of memory boxes; array is a numbered sequence. 
+
+***Arrays***<br/>
+Arrays consist of:
+* A fixed integer length(can't change)
+* A sequence of N memory boxes where N = length, such that:
+	* All of the boxes hold the same type of value (and have same # of bits).
+	* The boxes are numbered 0 through length -1
+	
+Like instances of classes:
+* You get one reference when its created.
+* If you reassign all variables containing that reference, you can never get the array back. 
+
+Unlike classes, arrays do not have methods. <br/>
+
+Three valid notations:
+* y = new int[3]; <-- creates array containing 3 ints boxes. Each container gets a default value. 
+* x = new int[]{1,2,3,4,5};
+* int[] w = {9,10,11,12,13} <-- Can omit the new if you are also declaring a variable. 
+
+***Arraycopy***
+Two ways to copy arrays:
+* Item by item using a loop.
+* Using arraycopy. Takes 5 parameters:
+	* Source array
+	* Start position in source
+	* Target array
+	* Start position in target
+	* Number to copy 
+  System.arraycopy(b,0,x,3,2)
+  arraycopy is faster, particularly for large arrays. More compact code.
+  * Code is harder to read. 
+### 2D Arrays
+
+### Arrays vs. Classes
+Arrays and Classes can both be used to organize a bunch of memory boxes.
+* Array boxes are accessed using [] notation.
+* Class boxes are accessed using dot notation. 
+* Array boxes must all be of the same type. 
+* Class boxes may be of different types.
+* Both have a fixed number of boxes.
+* Array indices can be computed at runtime.
+![](Images/array_runtime.PNG)
+* Class number variable names cannot be computed and used at runtime.
+![](Images/class_runtime.PNG)
