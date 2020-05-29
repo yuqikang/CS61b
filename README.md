@@ -232,7 +232,8 @@ An SLList with a sentinel node has at least the following invariants:
 ```
 
 ## Lesson 5. DLLists, Arrays
-*** Naive*** <br/>
+### Doubly Linked lists
+***Naive*** <br/>
 Problem: last pointer sometimes points at the sentinel, and sometimes points at a 'real' node. When code, have to check and see if it's actually the sentinel. So hard to code up. 
 ![](Images/naive.PNG)
 
@@ -244,7 +245,7 @@ Have two sentinels.
 Even better topology (IMO): Have one sentinel that is both the front and the back. 
 ![](Images/circular.PNG)
 
-### Generic Lists
+***Generic Lists***<br/>
 A method can used in different data types. 
 Java allows us to defer type select until declaration, 
 ![](Images/generic.PNG)
@@ -278,7 +279,7 @@ Three valid notations:
 * x = new int[]{1,2,3,4,5};
 * int[] w = {9,10,11,12,13} <-- Can omit the new if you are also declaring a variable. 
 
-***Arraycopy***
+***Arraycopy*** <br/>
 Two ways to copy arrays:
 * Item by item using a loop.
 * Using arraycopy. Takes 5 parameters:
@@ -290,9 +291,9 @@ Two ways to copy arrays:
   System.arraycopy(b,0,x,3,2)
   arraycopy is faster, particularly for large arrays. More compact code.
   * Code is harder to read. 
+  
 ### 2D Arrays
-
-### Arrays vs. Classes
+***Arrays vs. Classes***<br/>
 Arrays and Classes can both be used to organize a bunch of memory boxes.
 * Array boxes are accessed using [] notation.
 * Class boxes are accessed using dot notation. 
