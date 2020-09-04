@@ -231,7 +231,7 @@ An SLList with a sentinel node has at least the following invariants:
 }
 ```
 
-## Lesson 5. DLLists, Arrays
+## Lecture 5. DLLists, Arrays
 ### Doubly Linked lists
 ***Naive*** <br/>
 Problem: last pointer sometimes points at the sentinel, and sometimes points at a 'real' node. When code, have to check and see if it's actually the sentinel. So hard to code up. 
